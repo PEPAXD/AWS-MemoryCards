@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memory Card AWS</title>
+    <!-- Animate.css para animaciones (opcional) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
+    />
+    <!-- (Opcional) FontAwesome: solo se usa aquí para los íconos del score panel -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- Tus estilos compilados -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="score-panel">
+      <ul class="stars">
+        <li><i class="fa fa-star"></i></li>
+        <li><i class="fa fa-star"></i></li>
+        <li><i class="fa fa-star"></i></li>
+      </ul>
+      <span class="moves">0</span> Movimientos
+      <div class="restart">
+        <i class="fa fa-repeat"></i>
+      </div>
+    </div>
+    <ul class="deck"></ul>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- SweetAlert para diálogos (asegúrate de usar la versión adecuada) -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- Tu script -->
+    <script src="script.js"></script>
+  </body>
+</html>
