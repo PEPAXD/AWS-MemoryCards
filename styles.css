@@ -9,9 +9,13 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: #FF9090;
+  background: #0f1e47;
   overflow: hidden;
   font-family: 'Coda', cursive;
+}
+
+.score-panel {
+  color: #fff;
 }
 
 .deck {
@@ -19,8 +23,7 @@ body {
   margin: 0 auto;
   background: #FFFA62;
   padding: 16px;
-  border-radius: 10px;
-  box-shadow: 14px 14px 0 0 #000;
+  
 }
 
 .deck .card {
