@@ -37,12 +37,24 @@ function shuffle(array) {
   return array;
 }
 
+function updateHearts() {
+  var $hearts = $("#score-panel .heart li i");
+  $hearts.each(function(index) {
+      if (index >= lives) {
+          $(this).css("color", "black");
+      } else {
+          $(this).css("color", "#EE0E51"); // Color rojo para las vidas restantes
+      }
+  });
+}
+
 function initGame() {
   var cards = shuffle(symbols.slice());
   $deck.empty();
   match = 0;
   lives = 3;
   $livesNum.html(lives);
+  updateHearts();
   
   for (var i = 0; i < cards.length; i++) {
       $deck.append(
@@ -67,29 +79,6 @@ function endGame(win) {
       initGame();
   });
 }
-
-$restart.on("click", function() {
-  swal({
-      title: "¿Estás seguro?",
-      text: "¡Se perderá tu progreso!",
-      icon: "warning",
-      buttons: {
-          cancel: {
-              text: "Cancelar",
-              visible: true,
-              closeModal: true
-          },
-          confirm: {
-              text: "Sí, reiniciar el juego",
-              className: "btn-confirm"
-          }
-      }
-  }).then(function(confirm) {
-      if (confirm) {
-          initGame();
-      }
-  });
-});
 
 $deck.on("click", ".card:not('.match, .open')", function() {
   if ($(".show").length > 1) {
@@ -119,6 +108,7 @@ $deck.on("click", ".card:not('.match, .open')", function() {
           }, delay);
           lives--;
           $livesNum.html(lives);
+          updateHearts(); // Actualizar corazones tras perder una vida
       }
       opened = [];
   }
@@ -133,5 +123,6 @@ $deck.on("click", ".card:not('.match, .open')", function() {
       }, 500);
   }
 });
+
 
 initGame();

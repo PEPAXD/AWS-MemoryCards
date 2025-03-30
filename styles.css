@@ -9,7 +9,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: #0f1e47;
+  background: #0d113a;
   overflow: hidden;
   font-family: 'Coda', cursive;
 }
@@ -74,13 +74,14 @@ body {
   margin-bottom: 10px;
 }
 
-#score-panel .stars {
+#score-panel .heart {
   padding: 0;
   display: inline-block;
   margin-right: 5px;
+  color: #EE0E51;
 }
 
-#score-panel .stars li {
+#score-panel .heart li {
   list-style: none;
   display: inline-block;
 }
