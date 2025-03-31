@@ -6,7 +6,9 @@ var awsServices = [
   { name: "RDS", img: "img/aws-rds.png" },
   { name: "CloudFront", img: "img/aws-cloudfront.png" },
   { name: "CloudWatch", img: "img/aws-cloudwatch.png" },
-  { name: "SNS", img: "img/aws-sns.png" }
+  { name: "SNS", img: "img/aws-sns.png" },
+  
+
 ];
 
 var symbols = [];
