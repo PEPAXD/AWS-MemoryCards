@@ -11,7 +11,7 @@ body {
   flex-direction: column;
   background: #0d113a;
   overflow: hidden;
-  font-family: "Coda", cursive;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .score-panel {
@@ -20,13 +20,34 @@ body {
   align-items: center;
 
   h1 {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.2em;
+
+    font-size: 1em;
     color: #fff;
+
   }
 
   padding: 0rem 1rem;
   border-bottom: 2px solid #ffffff;
+
+  .moves-counter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 0.2rem;
+
+    font-size: 1em;
+    color: #fff;
+    padding-left: 0.5rem;
+    
+    i{
+      padding-bottom: 0.18rem;
+    }
+
+    span{
+      font-weight: bold;
+    }
+  }
 }
 
 .deck {

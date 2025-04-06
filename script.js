@@ -8,7 +8,6 @@ var awsServices = [
   { name: "CloudWatch", img: "img/aws-cloudwatch.png" },
   { name: "SNS", img: "img/aws-sns.png" },
   
-
 ];
 
 var symbols = [];
@@ -19,13 +18,13 @@ awsServices.forEach(function(service) {
 
 var opened = [],
   match = 0,
-  lives = 3,
+  moves = 0,
   $deck = $(".deck"),
   $scorePanel = $("#score-panel"),
-  $livesNum = $scorePanel.find(".lives"),
-  $restart = $scorePanel.find(".restart"),
+  $movesNum = $scorePanel.find(".moves"),
   delay = 800,
   gameCardsQTY = awsServices.length;
+
 
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
@@ -51,25 +50,25 @@ function updateHearts() {
 }
 
 function initGame() {
-  var cards = shuffle(symbols.slice());
-  $deck.empty();
-  match = 0;
-  lives = 3;
-  $livesNum.html(lives);
-  updateHearts();
+    var cards = shuffle(symbols.slice());
+    $deck.empty();
+    match = 0;
+    moves = 0;
+    $movesNum.html(moves);
   
-  for (var i = 0; i < cards.length; i++) {
+    for (var i = 0; i < cards.length; i++) {
       $deck.append(
-          $('<li class="card" data-service="' +
-              cards[i].name +
-              '"><img class="aws-icon" src="' +
-              cards[i].img +
-              '" alt="' +
-              cards[i].name +
-              '"></li>')
+        $('<li class="card" data-service="' +
+          cards[i].name +
+          '"><img class="aws-icon" src="' +
+          cards[i].img +
+          '" alt="' +
+          cards[i].name +
+          '"></li>')
       );
+    }
   }
-}
+  
 
 function endGame(win) {
   swal({
@@ -82,49 +81,47 @@ function endGame(win) {
   });
 }
 
-$deck.on("click", ".card:not('.match, .open')", function() {
-  if ($(".show").length > 1) {
+$deck.on("click", ".card:not('.match, .open')", function () {
+    if ($(".show").length > 1) {
       return;
-  }
-
-  var $this = $(this),
+    }
+  
+    var $this = $(this),
       service = $this.data("service");
-
-  $this.addClass("open show");
-  opened.push(service);
-
-  if (opened.length > 1) {
+  
+    $this.addClass("open show");
+    opened.push(service);
+  
+    if (opened.length > 1) {
+      moves++;
+      $movesNum.html(moves);
+  
       if (service === opened[0]) {
-          $deck.find(".open").addClass("match animated infinite rubberBand");
-          setTimeout(function() {
-              $deck.find(".match").removeClass("open show animated infinite rubberBand");
-          }, delay);
-          match++;
+        $deck.find(".open").addClass("match animated infinite rubberBand");
+        setTimeout(function () {
+          $deck.find(".match").removeClass("open show animated infinite rubberBand");
+        }, delay);
+        match++;
       } else {
-          $deck.find(".open").addClass("notmatch animated infinite wobble");
-          setTimeout(function() {
-              $deck.find(".open").removeClass("animated infinite wobble");
-          }, delay / 1.5);
-          setTimeout(function() {
-              $deck.find(".open").removeClass("open show notmatch animated infinite wobble");
-          }, delay);
-          lives--;
-          $livesNum.html(lives);
-          updateHearts(); // Actualizar corazones tras perder una vida
+        $deck.find(".open").addClass("notmatch animated infinite wobble");
+        setTimeout(function () {
+          $deck.find(".open").removeClass("animated infinite wobble");
+        }, delay / 1.5);
+        setTimeout(function () {
+          $deck.find(".open").removeClass("open show notmatch animated infinite wobble");
+        }, delay);
       }
+  
       opened = [];
-  }
-
-  if (lives === 0) {
-      setTimeout(function() {
-          endGame(false);
+    }
+  
+    if (gameCardsQTY === match) {
+      setTimeout(function () {
+        endGame(true);
       }, 500);
-  } else if (gameCardsQTY === match) {
-      setTimeout(function() {
-          endGame(true);
-      }, 500);
-  }
-});
+    }
+  });
+  
 
 
 initGame();
