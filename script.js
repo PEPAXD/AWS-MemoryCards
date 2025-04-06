@@ -1,13 +1,12 @@
 var awsServices = [
-  { name: "EC2", img: "img/aws-ec2.png" },
-  { name: "S3", img: "img/aws-s3.png" },
-  { name: "Lambda", img: "img/aws-lambda.png" },
-  { name: "DynamoDB", img: "img/aws-dynamodb.png" },
-  { name: "RDS", img: "img/aws-rds.png" },
-  { name: "CloudFront", img: "img/aws-cloudfront.png" },
-  { name: "CloudWatch", img: "img/aws-cloudwatch.png" },
-  { name: "SNS", img: "img/aws-sns.png" },
-  
+  { name: "EC2", img: "img/EC2.png" },
+  { name: "S3", img: "img/Simple Storage Service.png" },
+  { name: "Lambda", img: "img/Lambda.png" },
+  { name: "DynamoDB", img: "img/DynamoDB.png" },
+  { name: "RDS", img: "img/RDS.png" },
+  { name: "CloudFront", img: "img/CloudFront.png" },
+  { name: "CloudWatch", img: "img/CloudWatch.png" },
+  { name: "SNS", img: "img/Simple Notification Service.png" },
 ];
 
 var symbols = [];
