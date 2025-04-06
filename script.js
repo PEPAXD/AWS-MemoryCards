@@ -49,24 +49,27 @@ function updateHearts() {
 }
 
 function initGame() {
-    var cards = shuffle(symbols.slice());
-    $deck.empty();
-    match = 0;
-    moves = 0;
-    $movesNum.html(moves);
-  
-    for (var i = 0; i < cards.length; i++) {
-      $deck.append(
-        $('<li class="card" data-service="' +
-          cards[i].name +
-          '"><img class="aws-icon" src="' +
-          cards[i].img +
-          '" alt="' +
-          cards[i].name +
-          '"></li>')
-      );
-    }
+  var cards = shuffle(symbols.slice());
+  $deck.empty();
+  match = 0;
+  moves = 0;
+  $movesNum.html(moves);
+
+  for (var i = 0; i < cards.length; i++) {
+    $deck.append(
+      $('<li class="card" data-service="' +
+        cards[i].name +
+        '">' +
+        '<img class="card-back" src="img/awsCoverCard.png" alt="AWS Logo">' +
+        '<img class="aws-icon" src="' +
+        cards[i].img +
+        '" alt="' +
+        cards[i].name +
+        '">' +
+        '</li>')
+    );
   }
+}
   
 
 function endGame(win) {

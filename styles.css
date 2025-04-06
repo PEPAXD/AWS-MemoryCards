@@ -64,6 +64,7 @@ main {
 }
 
 .deck .card {
+  position: relative;
   height: 75px;
   width: 75px;
   background: #fff;
@@ -76,6 +77,16 @@ main {
   transform-style: preserve-3d;
   transition: transform 0.3s ease;
 }
+
+.deck .card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 
 .deck .card:nth-child(4n) {
   margin-right: 0;
@@ -107,6 +118,20 @@ main {
 .deck .card.open img.aws-icon,
 .deck .card.match img.aws-icon,
 .deck .card.show img.aws-icon {
+  display: block;
+}
+
+.deck .card.open .card-back,
+.deck .card.match .card-back {
+  display: none;
+}
+
+.deck .card .aws-icon {
+  display: none;
+}
+
+.deck .card.open .aws-icon,
+.deck .card.match .aws-icon {
   display: block;
 }
 
