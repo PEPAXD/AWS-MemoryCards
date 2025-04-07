@@ -9,69 +9,28 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: linear-gradient(180deg, #1e2a38 0%, #253446 100%);
-
+  background: #FF9090;
   overflow: hidden;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-main {
-  border: 2px solid #ffffff;
-  background: #252323;
-}
-
-.score-panel {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  h1 {
-
-    font-size: 1em;
-    color: #fff;
-
-  }
-
-  padding: 0rem 1rem;
-  border-bottom: 2px solid #ffffff;
-
-  .moves-counter{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    gap: 0.2rem;
-
-    font-size: 1em;
-    color: #fff;
-    padding-left: 0.5rem;
-    
-    i{
-      padding-bottom: 0.18rem;
-    }
-
-    span{
-      font-weight: bold;
-    }
-  }
+  font-family: 'Coda', cursive;
 }
 
 .deck {
   width: 345px;
   margin: 0 auto;
-
+  background: #FFFA62;
   padding: 16px;
-
+  border-radius: 10px;
+  box-shadow: 14px 14px 0 0 #000;
 }
 
 .deck .card {
-  position: relative;
   height: 75px;
   width: 75px;
-  background: #fff;
+  background: #FFCF7F;
   display: inline-block;
   margin: 0 15px 15px 0;
   text-align: center;
+  border-radius: 8px;
   vertical-align: top;
   cursor: pointer;
   transform: rotateY(180deg);
@@ -79,60 +38,30 @@ main {
   transition: transform 0.3s ease;
 }
 
-.deck .card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-
 .deck .card:nth-child(4n) {
   margin-right: 0;
 }
 
 .deck .card.open {
   transform: rotateY(0);
-  background: #89c4ff;
+  background: #89C4FF;
   cursor: default;
 }
 
 .deck .card.match {
   transform: rotateY(0);
   cursor: default;
-  background: #9bcb3c;
+  background: #9BCB3C;
 }
 
 .deck .card.notmatch {
-  background: #ee0e51;
+  background: #EE0E51;
 }
 
 .deck .card img.aws-icon {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: none; 
-}
-
-.deck .card.open img.aws-icon,
-.deck .card.match img.aws-icon,
-.deck .card.show img.aws-icon {
-  display: block;
-}
-
-.deck .card.open .card-back,
-.deck .card.match .card-back {
-  display: none;
-}
-
-.deck .card .aws-icon {
-  display: none;
-}
-
-.deck .card.open .aws-icon,
-.deck .card.match .aws-icon {
   display: block;
 }
 
@@ -142,14 +71,13 @@ main {
   margin-bottom: 10px;
 }
 
-#score-panel .heart {
+#score-panel .stars {
   padding: 0;
   display: inline-block;
   margin-right: 5px;
-  color: #ee0e51;
 }
 
-#score-panel .heart li {
+#score-panel .stars li {
   list-style: none;
   display: inline-block;
 }
