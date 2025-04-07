@@ -9,14 +9,15 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: #0d113a;
+  background: linear-gradient(180deg, #1e2a38 0%, #253446 100%);
+
   overflow: hidden;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 main {
   border: 2px solid #ffffff;
-  background: #1e2a38;
+  background: #252323;
 }
 
 .score-panel {
